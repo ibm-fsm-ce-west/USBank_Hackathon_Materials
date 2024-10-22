@@ -6,3 +6,4 @@ Sharing materials to accelerate the development process using watsonx products i
 3. RAG/watsonx discovery setup.
 4. Streamlit template app.
 5. Faker code to accelerate tabular synthetic data generation.
+6. OpenAPI Spec
