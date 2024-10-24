@@ -1,0 +1,8 @@
+Flask==3.0.3
+ibm_cloud_sdk_core==3.19.2
+ibm_watsonx_ai==1.1.2
+numpy==1.26.4
+pandas
+python-dotenv==1.0.1
+ibm_watson_openscale==3.0.40
+requests

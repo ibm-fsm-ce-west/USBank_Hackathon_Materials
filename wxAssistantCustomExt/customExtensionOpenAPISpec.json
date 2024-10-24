@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Generate Results API",
+      "description": "API for generating results based on questions",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "<<<Your CodeEngine Application ENDPOINT>>>>>>>>>>"
+      }
+    ],
+    "paths": {
+      "/generate_results": {
+        "post": {
+          "summary": "Generate results for a given question",
+          "operationId": "generateResults",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "question": {
+                      "type": "string",
+                      "example": ""
+                    }
+                  },
+                  "required": ["question"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "integer",
+                        "example": 200
+                      },
+                      "body": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "context1": {
+                              "type": "string"
+                            },
+                            "context2": {
+                              "type": "string"
+                            },
+                            "context3": {
+                              "type": "string"
+                            },
+                            "question": {
+                              "type": "string"
+                            },
+                            "answer": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "Invalid request format"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "Server error occurred"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
