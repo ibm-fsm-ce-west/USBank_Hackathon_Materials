@@ -1,11 +1,11 @@
 # Use an official Python runtime as a parent image
-FROM --platform=linux/amd64 python:3.10 AS build
+FROM --platform=linux/amd64 python:3.10-slim AS build
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
@@ -13,11 +13,11 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt /app
 
 # # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy remaining required files and folders to the container
-COPY src/customExtension.py /app
-#COPY content_files /app/content_files
+COPY customExtension.py /app
+COPY knowledge_base /app/knowledge_base
 
 
 # # Expose the port the app runs on
